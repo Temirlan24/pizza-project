@@ -7,7 +7,12 @@
     <h4 class="details__ingredients">Ingredients</h4>
 
     <ul>
-      <li *ngFor="let ingredient of recipe?.ingredients">{{ ingredient }}</li>
+      <li *ngFor="let ingredient of recipe?.ingredients">{{ ingredient }} 
+        <div class="btns">
+          <button type="button" class="btn btn-success" (click)="addToCart(ingredient)">+</button>
+          <button type="button" class="btn btn-danger" (click)="removeFromCart(ingredient)">-</button>
+        </div>  
+      </li>
     </ul>
   </ng-container>
 
@@ -20,3 +25,11 @@
 
 
 {{ filteredIngredients$ | async }}
+
+
+<div class="">
+  <h4>Shopping Basket</h4>
+  <ol>
+    <li *ngFor="let cart of carts">{{cart}}</li>
+  </ol>
+</div>

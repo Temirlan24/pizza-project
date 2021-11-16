@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { interval, Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, takeUntil, tap } from 'rxjs/operators';
 import { BaseComponent } from '../base.component';
@@ -16,7 +17,7 @@ export class HeaderComponent extends BaseComponent implements OnInit {
   );
   queryControl = new FormControl(null);
 
-  constructor() {
+  constructor(private router: Router) {
     super();
   }
 

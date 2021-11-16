@@ -14,7 +14,7 @@ import { CounterComponent } from './components/counter/counter.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomeComponent }
 ];
 @NgModule({
   declarations: [
@@ -24,7 +24,7 @@ const routes: Routes = [
     FooterComponent,
     SidebarComponent,
     DetailsComponent,
-    CounterComponent,
+    CounterComponent
   ],
   imports: [
     BrowserModule,

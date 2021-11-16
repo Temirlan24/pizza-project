@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { mergeMap, tap } from 'rxjs/operators';
+import { CartService } from 'src/app/services/cart.service';
 import { ForkifyService } from 'src/app/services/forkify.service';
 import { IRecipeDetails } from '../../models/forkify.model';
 
@@ -49,9 +50,18 @@ export class DetailsComponent implements OnInit {
     return this._recipe;
   }
 
-  constructor(private forkifyService: ForkifyService) {
+  constructor(private forkifyService: ForkifyService, private cartService: CartService) {
 
   }
+  carts:any[] = [];
+  ngOnInit() {
+    this.carts = this.cartService.getCarts();
+  }
 
-  ngOnInit() {}
+  addToCart(ingredient: any){
+      this.cartService.addToBasket(ingredient);
+  }
+  removeFromCart(ingredient: any){
+    this.cartService.removeFromBasket(ingredient);
+  }
 }
